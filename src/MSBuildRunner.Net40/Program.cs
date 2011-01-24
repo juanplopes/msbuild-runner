@@ -9,7 +9,7 @@ namespace MSBuildRunner
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             var msbuild = ToolLocationHelper.GetPathToDotNetFrameworkFile("msbuild.exe", TargetDotNetFrameworkVersion.VersionLatest);
             var newArgs = string.Join(" ", args.Select(x => "\"" + x + "\"").ToArray());
@@ -18,6 +18,7 @@ namespace MSBuildRunner
             psi.UseShellExecute = false;
             var p = Process.Start(psi);
             p.WaitForExit();
+            return p.ExitCode;
         }
     }
 }
