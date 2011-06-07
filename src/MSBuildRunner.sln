@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuildRunner.Net40", "MSBu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuildRunner.Net35", "MSBuildRunner.Net35\MSBuildRunner.Net35.csproj", "{35B324AB-59BF-4B1C-9955-179E610EEF7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuildRunner.Net20", "MSBuildRunner.Net20\MSBuildRunner.Net20.csproj", "{25B5A7DA-F070-4808-BC27-D35504A2E497}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,6 +21,10 @@ Global
 		{35B324AB-59BF-4B1C-9955-179E610EEF7B}.Debug|x86.Build.0 = Debug|x86
 		{35B324AB-59BF-4B1C-9955-179E610EEF7B}.Release|x86.ActiveCfg = Release|x86
 		{35B324AB-59BF-4B1C-9955-179E610EEF7B}.Release|x86.Build.0 = Release|x86
+		{25B5A7DA-F070-4808-BC27-D35504A2E497}.Debug|x86.ActiveCfg = Debug|x86
+		{25B5A7DA-F070-4808-BC27-D35504A2E497}.Debug|x86.Build.0 = Debug|x86
+		{25B5A7DA-F070-4808-BC27-D35504A2E497}.Release|x86.ActiveCfg = Release|x86
+		{25B5A7DA-F070-4808-BC27-D35504A2E497}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
