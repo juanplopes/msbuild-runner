@@ -1,7 +1,8 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build"> 
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Integrate"> 
   <PropertyGroup> 
     <BuildDir>$(MSBuildProjectDirectory)\build\</BuildDir>
-    <SourceDir>src\</SourceDir>
+    <SourceDir>$(MSBuildProjectDirectory)\src\</SourceDir>
+    <PackageDir>$(MSBuildProjectDirectory)\pkg\</PackageDir>
     <Configuration>Release</Configuration>
     <Platform>x86</Platform>
     <ProductVersion>1.0</ProductVersion>
@@ -33,8 +34,19 @@
   <Target Name="Build" DependsOnTargets="GenerateAssemblyInfo">
     <MSBuild Projects="@(SolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform);OutputPath=$(BuildDir)"/>
   </Target>
-
+  
   <Target Name="Rebuild">
     <CallTarget Targets="Clean; Build"></CallTarget>
+  </Target>
+  
+  <Target Name="Package" DependsOnTargets="Rebuild">
+    <ItemGroup>
+      <LibraryFiles Include="$(BuildDir)\msbuild*.exe"/>
+    </ItemGroup>
+
+    <Copy SourceFiles="@(LibraryFiles)" DestinationFolder="$(PackageDir)\lib" />
+    <Zip Files="@(LibraryFiles)" ZipFileName="$(PackageDir)\msbuild-runner.zip" WorkingDirectory="$(BuildDir)"/>
+  </Target>
+  <Target Name="Integrate" DependsOnTargets="Package">
   </Target>
 </Project>
